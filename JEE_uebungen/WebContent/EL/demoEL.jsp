@@ -18,7 +18,10 @@
 	<h1> ${ Person.name } ${ Person.vorname }</h1>
 	<h1> ${ Person.adresse.strasse }</h1>
 	<h1> ${ Person }</h1>
-	<h1> ${ Personen[1].vorname }</h1>
-	<h1> ${ Personen[1] }</h1>
+	<%for(int i = 0; i < 2; i++){
+		request.setAttribute("i", i);%>
+	<h1> ${ Personen[i].vorname }</h1>
+	<h1> ${ Personen[i] }</h1>
+	<% } %>
 </body>
 </html>
