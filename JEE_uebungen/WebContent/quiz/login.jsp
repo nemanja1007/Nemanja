@@ -13,10 +13,8 @@
 <body>
 	<h1>Login für Quiz</h1>
 	<h2>Geben sie einen Gastnamen an</h2>
-	<form action="QuizServlet" method="get" accept-charset="utf-8">
-		<label>Gastname: <input type="text" name="gast"></label><br>
-	</form>
 	<form action="startseite.jsp" method="get" accept-charset="utf-8">
+		<label>Gastname: <input type="text" name="gast"></label><br>
 		<input type ="submit" name="submit" value="senden"> 
 	</form>
 </body>

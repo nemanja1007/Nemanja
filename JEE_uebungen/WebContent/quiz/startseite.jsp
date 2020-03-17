@@ -13,7 +13,7 @@
 <body>
 	<h1>Quiz starten</h1>
 	<h2>Starten Sie das Quiz</h2>
-	<form action="startseite.jsp" method="get" accept-charset="utf-8">
+	<form action="../frage.html" method="get" accept-charset="utf-8">
 		<label>Start: <input type="submit" name="quizstart" value="starten"></label>
 	</form>
 </body>

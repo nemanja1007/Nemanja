@@ -2,6 +2,7 @@ package quizPackage;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -14,7 +15,7 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet implementation class QuizServlet
  */
-@WebServlet("/QuizServlet")
+@WebServlet("/frage.html")
 public class QuizServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	ArrayList<Frage> fragenListe = new ArrayList<>();
@@ -24,7 +25,10 @@ public class QuizServlet extends HttpServlet {
 	 */
 	public QuizServlet() {
 		super();
-		// TODO Auto-generated constructor stub
+		Frage f = new Frage("Was ist die Hauptstadt der Schweiz?", new String[] {"Bern", "Berlin"}, 1 );
+		fragenListe.add(f);
+		f = new Frage("Was gibt 2+2*2?", new String[] {"8", "6"}, 2 );
+		fragenListe.add(f);
 	}
 
 	/**
@@ -33,17 +37,26 @@ public class QuizServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		HttpSession session = request.getSession();
-
-		String gast = request.getParameter("gast");
-		session.setAttribute("gast", gast);
+		String next = request.getParameter("nextFrage");
 		
-		fragenListe.add(new Frage("Hauptstadt der Schweiz?", "Bern", 1));
-		fragenListe.add(new Frage("Hauptstadt von Deutschland?", "Berlin", 2));
-		fragenListe.add(new Frage("Hauptstadt von Serbien?", "Belgrad", 3));
-		fragenListe.add(new Frage("Hauptstadt von Österreich?", "Wien", 4));
-
-		RequestDispatcher rd = request.getRequestDispatcher("quiz/startseite.jsp");
+		Integer nextFrage = 1;
+		if(next != null){
+			nextFrage = Integer.parseInt(next);
+		}
+		HttpSession session = request.getSession();
+		session.setAttribute("Frage",  fragenListe.get(0));
+		
+		
+		
+		Integer countFrage = 0;
+		if(session.getAttribute("CountFrage") != null) {
+			countFrage = (Integer) session.getAttribute("CountFrage");
+		}
+		if(nextFrage > countFrage) {
+			session.setAttribute("Frage", fragenListe.get(countFrage));
+			session.setAttribute("CountFrage", ++countFrage);
+		}
+		RequestDispatcher rd = request.getRequestDispatcher("quiz/frageseite.jsp");
 		rd.forward(request, response);
 	}
 

@@ -2,47 +2,41 @@ package quizPackage;
 
 public class Frage {
 	private String frage;
-	private String antwort;
-	private int id;
+	private String[] antworten;
+	private int richtig;
+	
 
 	
-	
-	public Frage(String frage, String antwort, int id) {
+	public Frage() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public Frage(String frage, String[] antworten, int richtig) {
 		super();
 		this.frage = frage;
-		this.antwort = antwort;
-		this.id = id;
+		this.antworten = antworten;
+		this.richtig = richtig;
 	}
-
-	@Override
-	public String toString() {
-		// TODO Auto-generated method stub
-		return super.toString();
-	}
-
 	public String getFrage() {
 		return frage;
 	}
-
 	public void setFrage(String frage) {
 		this.frage = frage;
 	}
-
-	public String getAntwort() {
-		return antwort;
+	public String[] getAntworten() {
+		return antworten;
 	}
-
-	public void setAntwort(String antwort) {
-		this.antwort = antwort;
+	public void setAntworten(String[] antworten) {
+		this.antworten = antworten;
 	}
-
-	public int getId() {
-		return id;
+	public int getRichtig() {
+		return richtig;
 	}
-
-	public void setId(int id) {
-		this.id = id;
+	public void setRichtig(int richtig) {
+		this.richtig = richtig;
 	}
+	
+	
 	
 	
 
