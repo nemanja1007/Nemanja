@@ -11,8 +11,23 @@
 <title>Bibliothek</title>
 </head>
 <body>
-<h1>Tabelle</h1>
-<h2> ${ Buch }</h2>
+	<h1>Tabelle</h1>
+	<p>Buchtitel</p>
+	${ Buch.titel }
+	${ Buch.seiten }
+	${ Buch.kategorie }
+	${ Author.name }
+	${ Author.vorname }
+	
+	<p>Hier kommen die eingetragenen Bücher!</p>
+
+	<form>
+
+
+		<input type="submit" name="erneut" value="Neues Buch eintragen">
+
+
+	</form>
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
 		integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
 		crossorigin="anonymous"></script>
@@ -26,3 +41,5 @@
 		crossorigin="anonymous"></script>
 </body>
 </html>
+
+
