@@ -12,14 +12,16 @@ private static Bibliothek bibliothek =null;
 public Bibliothek() {
 	super();
 	Buch b = new Buch();
+	
 }
 public static Bibliothek getBibliothek() {
-    return bibliothek;
+	if(bibliothek == null) {
+	bibliothek = new Bibliothek();
+   
+	}
+	 return bibliothek;
 }
-public static void setBibliothek(Bibliothek bibliothek) {
-		Bibliothek.bibliothek = bibliothek;
-		bibliothek = new Bibliothek();
-}
+
 public ArrayList<Buch> getBuchList() {
     return buchList;
 }

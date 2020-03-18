@@ -10,16 +10,17 @@
 	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
 	crossorigin="anonymous">
 </head>
-<body>
+<body style="padding: 20px;">
 	<h1>Buch erfassen</h1>
 	<form action="BuchServlet">
 		<div class="form-group">
 			<fieldset>
 				<legend>Buch</legend>
-				<label>Titel<input type="text" name="titel"></label><br> <label>Seiten<input
-					type="number" name="seiten"></label><br> <label>Kategorie<input
-					type="select" name="kategorie"></label><br>
+				<label>Titel<input type="text" name="titel"></label> <label>Seiten<input
+					type="number" name="seiten"></label> <label>Kategorie<input
+					type="select" name="kategorie"></label>
 			</fieldset>
+			<br>
 			<fieldset>
 				<legend>Autor</legend>
 				<label>Name<input type="text" name="Name"></label> <label>Vorname<input

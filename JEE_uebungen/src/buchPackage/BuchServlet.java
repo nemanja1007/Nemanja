@@ -43,7 +43,11 @@ public class BuchServlet extends HttpServlet {
 		}
 		int seiten = 0;
 		if (request.getParameter("seiten") != null) {
-			seiten = Integer.parseInt(request.getParameter("seiten"));
+			try {seiten = Integer.parseInt(request.getParameter("seiten"));}
+			catch(NumberFormatException ne) {
+				ne.printStackTrace();
+			}
+			
 		}
 		String kategorie="";
 		if (request.getParameter("kategorie") != null) {

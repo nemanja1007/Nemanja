@@ -14,63 +14,39 @@
 <meta charset="ISO-8859-1">
 <title>Bibliothek</title>
 </head>
-<body>
-
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Titel</th>
-      <th scope="col">Anzahl Seiten</th>
-      <th scope="col">Kategorie</th>
-      <th scope="col">Autorname</th>
-      <th scope="col">Autorvorname</th>
-      <th scope="col">Geburtsdatum</th>
-    </tr>
-  </thead>
-  <tbody>
-  
-  <c:forEach var="item" items=${ list }/>
-  
-    <tr>
-    
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-</table>
-
-
-
-
-
+<body style="padding: 20px;">
 	<h1>Tabelle</h1>
-	<p>Buchtitel</p>
-	${ Buch.titel } ${ Buch.seiten } ${ Buch.kategorie } ${ Author.name }
-	${ Author.vorname }
+	<!--  ${buchListe.size() } -->
+	<table class="table">
+		<thead>
+			<tr>
+				<th scope="col">Titel</th>
+				<th scope="col">Anzahl Seiten</th>
+				<th scope="col">Kategorie</th>
+				<th scope="col">Autorname</th>
+				<th scope="col">Autorvorname</th>
+				<th scope="col">Geburtsdatum</th>
+			</tr>
+		</thead>
+		<tbody>
 
-	<p>Hier kommen die eingetragenen Bücher!</p>
+			<c:forEach var="buecher" items="${ buchListe }" >
 
-	<form>
-
-
-		<input type="submit" name="erneut" value="Neues Buch eintragen">
-
-
-	</form>
+			<tr>
+				<td><c:out value="${ buecher.titel }" /></td>
+				<td><c:out value="${ buecher.seiten }" /></td>
+				<td><c:out value="${ buecher.kategorie }" /></td>
+				<td><c:out value="${ buecher.author.name }" /></td>
+				<td><c:out value="${ buecher.author.vorname }" /></td>
+				<td><c:out value="${ buecher.author.geburtsdatum }" /></td>
+			</tr>
+			</c:forEach>
+		</tbody>
+	</table>
+	<a class="btn btn-primary" href="index.jsp" role="button">Neuen Eintrag hinzufügen</a>
+	<a class="btn btn-primary" href="index.jsp" role="button">Eintrag löschen</a> <!-- href ändern -->
+	<a class="btn btn-primary" href="index.jsp" role="button">Eintrag editieren</a> <!-- href ändern -->
+	
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
 		integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
 		crossorigin="anonymous"></script>
