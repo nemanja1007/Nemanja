@@ -4,6 +4,17 @@ public class Buch {
 	private String titel;
 	private int seiten;
 	private String kategorie;
+	private Author author;
+
+	
+	
+	public Author getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(Author author) {
+		this.author = author;
+	}
 
 	public String getTitel() {
 		return titel;

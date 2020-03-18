@@ -8,6 +8,11 @@ private ArrayList <Buch> buchList = new ArrayList<Buch>();
 private static Bibliothek bibliothek =null;
 
 
+
+public Bibliothek() {
+	super();
+	Buch b = new Buch();
+}
 public static Bibliothek getBibliothek() {
     return bibliothek;
 }

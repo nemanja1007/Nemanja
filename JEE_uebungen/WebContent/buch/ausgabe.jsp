@@ -3,6 +3,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+<%@page import="java.util.ArrayList"%>
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
 	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
@@ -11,14 +15,53 @@
 <title>Bibliothek</title>
 </head>
 <body>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Titel</th>
+      <th scope="col">Anzahl Seiten</th>
+      <th scope="col">Kategorie</th>
+      <th scope="col">Autorname</th>
+      <th scope="col">Autorvorname</th>
+      <th scope="col">Geburtsdatum</th>
+    </tr>
+  </thead>
+  <tbody>
+  
+  <c:forEach var="item" items=${ list }/>
+  
+    <tr>
+    
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Larry</td>
+      <td>the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+
 	<h1>Tabelle</h1>
 	<p>Buchtitel</p>
-	${ Buch.titel }
-	${ Buch.seiten }
-	${ Buch.kategorie }
-	${ Author.name }
+	${ Buch.titel } ${ Buch.seiten } ${ Buch.kategorie } ${ Author.name }
 	${ Author.vorname }
-	
+
 	<p>Hier kommen die eingetragenen Bücher!</p>
 
 	<form>

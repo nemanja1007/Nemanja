@@ -66,6 +66,7 @@ public class BuchServlet extends HttpServlet {
             }catch (ParseException e) {
                 e.printStackTrace();
             }
+		}
 
 		Bibliothek bibliothek = Bibliothek.getBibliothek();
 
@@ -78,12 +79,15 @@ public class BuchServlet extends HttpServlet {
 		a.setName(name);
 		a.setVorname(vorname);
 		
+		bibliothek.getBuchList().add(b);
 		
+		request.setAttribute("buchListe", bibliothek.getBuchList());
 		request.setAttribute("Buch", b);
 		RequestDispatcher rd = request.getRequestDispatcher("ausgabe.jsp");
 		rd.forward(request, response);
 
 	}
+		
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
@@ -96,3 +100,4 @@ public class BuchServlet extends HttpServlet {
 	}
 
 }
+	
