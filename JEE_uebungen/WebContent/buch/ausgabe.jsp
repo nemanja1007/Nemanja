@@ -20,6 +20,7 @@
 	<table class="table">
 		<thead>
 			<tr>
+				<th scope="col">ISBN-Nummer</th>
 				<th scope="col">Titel</th>
 				<th scope="col">Anzahl Seiten</th>
 				<th scope="col">Kategorie</th>
@@ -30,23 +31,29 @@
 		</thead>
 		<tbody>
 
-			<c:forEach var="buecher" items="${ buchListe }" >
+			<c:forEach var="buecher" items="${ buchListe }">
 
-			<tr>
-				<td><c:out value="${ buecher.titel }" /></td>
-				<td><c:out value="${ buecher.seiten }" /></td>
-				<td><c:out value="${ buecher.kategorie }" /></td>
-				<td><c:out value="${ buecher.author.name }" /></td>
-				<td><c:out value="${ buecher.author.vorname }" /></td>
-				<td><c:out value="${ buecher.author.geburtsdatum }" /></td>
-			</tr>
+				<tr>
+					<td><c:out value="${ buecher.isbn }" /></td>
+					<td><c:out value="${ buecher.titel }" /></td>
+					<td><c:out value="${ buecher.seiten }" /></td>
+					<td><c:out value="${ buecher.kategorie }" /></td>
+					<td><c:out value="${ buecher.author.name }" /></td>
+					<td><c:out value="${ buecher.author.vorname }" /></td>
+					<td><c:out value="${ buecher.author.geburtsdatum }" /></td>
+				</tr>
 			</c:forEach>
 		</tbody>
 	</table>
-	<a class="btn btn-primary" href="index.jsp" role="button">Neuen Eintrag hinzufügen</a>
-	<a class="btn btn-primary" href="index.jsp" role="button">Eintrag löschen</a> <!-- href ändern -->
-	<a class="btn btn-primary" href="index.jsp" role="button">Eintrag editieren</a> <!-- href ändern -->
-	
+	<a class="btn btn-primary" href="index.jsp" role="button">Neuen
+		Eintrag hinzufügen</a>
+	<a class="btn btn-primary" href="index.jsp" role="button">Eintrag
+		löschen</a>
+	<!-- href ändern -->
+	<a class="btn btn-primary" href="bearbeiten.jsp" role="button">Eintrag
+		editieren</a>
+	<!-- href ändern -->
+
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
 		integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
 		crossorigin="anonymous"></script>

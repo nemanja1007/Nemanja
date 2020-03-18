@@ -4,10 +4,17 @@ public class Buch {
 	private String titel;
 	private int seiten;
 	private String kategorie;
+	private int isbn;
 	private Author author;
 
-	
-	
+	public int getIsbn() {
+		return isbn;
+	}
+
+	public void setIsbn(int isbn) {
+		this.isbn = isbn;
+	}
+
 	public Author getAuthor() {
 		return author;
 	}

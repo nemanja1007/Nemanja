@@ -49,6 +49,14 @@ public class BuchServlet extends HttpServlet {
 			}
 			
 		}
+		int isbn = 0;
+		if (request.getParameter("isbn") != null) {
+			try {isbn = Integer.parseInt(request.getParameter("isbn"));}
+			catch(NumberFormatException ne) {
+				ne.printStackTrace();
+			}
+			
+		}
 		String kategorie="";
 		if (request.getParameter("kategorie") != null) {
 			kategorie = request.getParameter("kategorie");
@@ -77,16 +85,19 @@ public class BuchServlet extends HttpServlet {
 		// ((ArrayList<Buch>) request.getServletContext().getAttribute("Buch))
 		Buch b = new Buch();
 		Author a = new Author();
+		b.setIsbn(isbn);
 		b.setTitel(titel);
 		b.setSeiten(seiten);
 		b.setKategorie(kategorie);
 		a.setName(name);
 		a.setVorname(vorname);
+		//a.setGeburtsdatum(datum);
+		b.setAuthor(a);
 		
 		bibliothek.getBuchList().add(b);
 		
-		request.setAttribute("buchListe", bibliothek.getBuchList());
 		request.setAttribute("Buch", b);
+		request.setAttribute("buchListe", bibliothek.getBuchList());
 		RequestDispatcher rd = request.getRequestDispatcher("ausgabe.jsp");
 		rd.forward(request, response);
 

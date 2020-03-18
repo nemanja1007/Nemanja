@@ -16,7 +16,7 @@
 		<div class="form-group">
 			<fieldset>
 				<legend>Buch</legend>
-				<label>Titel<input type="text" name="titel"></label> <label>Seiten<input
+				<label>ISBN Nummer<input type="number" name="isbn"></label><label>Titel<input type="text" name="titel"></label> <label>Seiten<input
 					type="number" name="seiten"></label> <label>Kategorie<input
 					type="select" name="kategorie"></label>
 			</fieldset>
