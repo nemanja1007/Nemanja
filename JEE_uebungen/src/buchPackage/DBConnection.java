@@ -15,22 +15,24 @@ public class DBConnection {
 	public DBConnection() {
 		try {
 			// Verbindung zum Server
-			this.connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/mySQLdb", "root",
+			this.connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/bibliothek", "root",
 					"");
 			System.out.println("Connection erfolgreich");
 			//this.statement = (Statement) connection.createStatement();
-			this.connection.close();
 		} catch (SQLException ex) {
 			System.err.println(ex);
 		}
 		
 	}
 
-//Ausfühtung Konstruktor
+//Ausführung Konstruktor
 	public static DBConnection getInstance() {
 		if (instance == null) {
 			instance = new DBConnection();
 		}
 		return instance;
 	}
+	public java.sql.Connection getConnection() {
+        return connection;
+    }
 }
