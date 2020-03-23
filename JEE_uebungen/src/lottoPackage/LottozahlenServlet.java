@@ -28,28 +28,7 @@ public class LottozahlenServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int zahl;
-		int zahl2;
-		int zahl3;
-		int zahl4;
-		int zahl5;
-		int zahl6;
-		
-		Zufallszahl z = new Zufallszahl();
-		zahl = z.getZahl();
-		zahl2 = z.getZahl();
-		zahl3 = z.getZahl();
-		zahl4 = z.getZahl();
-		zahl5 = z.getZahl();
-		zahl6 = z.getZahl();
-		
-		request.setAttribute("Zahl", zahl);
-		request.setAttribute("Zahl2", zahl2);
-		request.setAttribute("Zahl3", zahl3);
-		request.setAttribute("Zahl4", zahl4);
-		request.setAttribute("Zahl5", zahl5);
-		request.setAttribute("Zahl6", zahl6);
-		
+		request.setAttribute("zahlListe", Zufallszahl.getZahlen());
 		RequestDispatcher rd = request.getRequestDispatcher("lotto/lottozahlen.jsp");
 		rd.forward(request, response);
 	}
