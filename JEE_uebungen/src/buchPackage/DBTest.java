@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 public class DBTest {
 	public static void main(String[] args) {
+        System.out.println(true && true || (true && false));
         DBConnection db = DBConnection.getInstance();
 
         try {
@@ -12,13 +13,22 @@ public class DBTest {
                 AutorDAO autorDAO = new AutorDAO();
                 Author a = new Author();
                 a.setName("Muster");
-                a.setVorname("test");
+                a.setVorname("Meier");
                 autorDAO.insert(a);
-
-                ArrayList<Author> list = autorDAO.selectAll();
+                /*
+                ArrayList<Autor> list = autorDAO.selectAll();
                 for(Author a2 : list) {
-                    System.out.println(a2.getId() + " " + a2.getName() + a2.getVorname());
-                }
+                    System.out.println(a2.getId() + " " + a2.getName() + " " + a2.getVorname()/* + " " + a2.getGeburtsdatum());
+                }*/
+
+                Buch b = new Buch();
+                b.setTitel("Eine Programmiersprache");
+                b.setSeiten(999);
+                b.setAuthor(a);
+
+                BuchDAO buchDAO = new BuchDAO();
+                buchDAO.insert(b);
+
 
                 db.getConnection().close();
 
@@ -31,3 +41,4 @@ public class DBTest {
         }
     }
 }
+

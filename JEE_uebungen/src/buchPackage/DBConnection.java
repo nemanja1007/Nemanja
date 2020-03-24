@@ -21,6 +21,7 @@ public class DBConnection {
 			//this.statement = (Statement) connection.createStatement();
 		} catch (SQLException ex) {
 			System.err.println(ex);
+		
 		}
 		
 	}
