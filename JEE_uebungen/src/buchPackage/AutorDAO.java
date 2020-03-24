@@ -72,4 +72,10 @@ public class AutorDAO {
         }
         return list;
     }
+	
+	public Author select(int id) {
+		Author a = new Author();
+		a.setId(id);
+		return a;
+	}
 }

@@ -14,6 +14,7 @@ public class DBConnection {
 
 	public DBConnection() {
 		try {
+			Class.forName("com.mysql.jdbc.Driver");
 			// Verbindung zum Server
 			this.connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/bibliothek", "root",
 					"");
@@ -22,6 +23,8 @@ public class DBConnection {
 		} catch (SQLException ex) {
 			System.err.println(ex);
 		
+		}catch (ClassNotFoundException e) {
+			e.printStackTrace();
 		}
 		
 	}
