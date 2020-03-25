@@ -1,12 +1,12 @@
 package buchPackage;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Author {
 	private int id;
 	private String name;
 	private String vorname;
-	private Date geburtsdatum;
+	private LocalDate geburtsdatum;
 
 	public int getId() {
 		return id;
@@ -32,11 +32,11 @@ public class Author {
 		this.vorname = vorname;
 	}
 
-	public Date getGeburtsdatum() {
+	public LocalDate getGeburtsdatum() {
 		return geburtsdatum;
 	}
 
-	public void setGeburtsdatum(Date geburtsdatum) {
+	public void setGeburtsdatum(LocalDate geburtsdatum) {
 		this.geburtsdatum = geburtsdatum;
 	}
 

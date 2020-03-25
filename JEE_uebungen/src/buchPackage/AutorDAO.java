@@ -1,6 +1,7 @@
 package buchPackage;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,12 +14,14 @@ public class AutorDAO {
         int r = 0;
 
         try {
-            String sql = "INSERT INTO autor (name, vorname) VALUES (?,?)";
+            String sql = "INSERT INTO autor (name, vorname, geburtsdatum) VALUES (?,?, ?)";
             Connection con = DBConnection.getInstance().getConnection();
             PreparedStatement pstmt = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             //pstmt.setInt(1,  1);
             pstmt.setString(1, a.getName());
             pstmt.setString(2, a.getVorname());
+            Date dateSQL = Date.valueOf(a.getGeburtsdatum());
+            pstmt.setDate(3,  dateSQL);
             //pstmt.setDate(3, a.getGeburtsdatum())
             r = pstmt.executeUpdate();
 
@@ -59,11 +62,15 @@ public class AutorDAO {
                 int pk = rs.getInt(1);
                 String name = rs.getString(2);
                 String vorname = rs.getString(3);
+                Date sqlDate = rs.getDate(4);
 
                 Author a = new Author();
                 a.setId(pk);
                 a.setName(name);
                 a.setVorname(vorname);
+                if(sqlDate != null) {
+                	a.setGeburtsdatum(sqlDate.toLocalDate());
+                }
 
                 list.add(a);
             }
