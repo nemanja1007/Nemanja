@@ -16,12 +16,20 @@
 	<form action="LottozahlenServlet">
 		<c:forEach var="zahl" items="${ zahlListe }">
 			<div
-				style="background-image: url('lotto/kugel.png'); background-repeat: no repeat; width: 160px; height: 160px; float: left;">
-				<c:out value="${ zahl }"/>
+				style="background-image: url('lotto/kugel.png'); background-repeat: no repeat; width: 160px; height: 160px; float: left; font-size: 30px; text-align: center; padding-top: 50px;">
+				<c:out value="${ zahl }" />
 			</div>
 		</c:forEach>
-		<input type="submit" value="Lottozahlen"
-			name="neueLottozahlen">
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>	
+		<a href="LottozahlenServlet" class="btn btn-primary btn-lg active"
+			role="button" aria-pressed="true">Lottozahlen</a>
+
 	</form>
 </body>
 </html>

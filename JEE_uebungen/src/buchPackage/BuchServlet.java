@@ -1,8 +1,10 @@
 package buchPackage;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
@@ -82,6 +84,10 @@ public class BuchServlet extends HttpServlet {
 
 		Bibliothek bibliothek = Bibliothek.getBibliothek();
 
+		if(request.getServletContext().getAttribute("buchListe") == null)
+			request.getServletContext().setAttribute("buchListe", 
+					new ArrayList<Buch>());
+			
 		// ((ArrayList<Buch>) request.getServletContext().getAttribute("Buch))
 		Buch b = new Buch();
 		Author a = new Author();
@@ -95,6 +101,17 @@ public class BuchServlet extends HttpServlet {
 		b.setAuthor(a);
 		
 		bibliothek.getBuchList().add(b);
+		
+		DBConnection.getInstance().open();
+		
+		//Insert
+		try {
+			DBConnection.getInstance().getConnection().close();
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		DBConnection.getInstance().getConnection();
 		
 		request.setAttribute("Buch", b);
 		request.setAttribute("buchListe", bibliothek.getBuchList());

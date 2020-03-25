@@ -52,7 +52,7 @@ public class AutorDAO {
         ArrayList<Author> list = new ArrayList<>();
 
         try {
-            String sql = "INSERT INTO autor (name, vorname, geburtsdatum) VALUES (?,?,?)";
+            String sql = "SELECT name, vorname, geburtsdatum FROM autor";
             Connection con = DBConnection.getInstance().getConnection();
             PreparedStatement pstmt = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 

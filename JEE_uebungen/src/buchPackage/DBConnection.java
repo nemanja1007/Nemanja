@@ -39,4 +39,16 @@ public class DBConnection {
 	public java.sql.Connection getConnection() {
         return connection;
     }
+	
+	public void open(){
+		try {
+			if(this.connection == null || this.connection.isClosed()) {
+				this.connection = (Connection) DriverManager.getConnection("jdbc:mysql:"
+						+ "//localhost:3306/bibliothek", "root",
+						"");
+			}
+		}catch(SQLException ex) {
+			System.err.println(ex);
+		}
+	}
 }
