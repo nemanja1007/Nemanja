@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<script language="JavaScript">
+
+var Passwort = "Test";
+var UserEingabe = "";
+var Zaehler = 1;
+while((UserEingabe != Passwort)&&(Zaehler <= 3))
+{
+ UserEingabe = window.prompt(Zaehler + ". Versuch: Versuchen Sie das Passwort zu knacken","");
+ Zaehler++;
+ }
+if(UserEingabe != Passwort)  
+	document.location.href="falsch.html";
+else
+ document.location.href="endseite.html";
+
+</script>
+</body>
+</html>
