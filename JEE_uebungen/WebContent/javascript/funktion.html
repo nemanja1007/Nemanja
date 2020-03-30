@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Array Übung</title>
+</head>
+<body>
+<h1>Array</h1>
+<p id="demo"> </p>
+<script type="text/javascript">
+var max;
+
+max = window.prompt("Max Zahl: ");
+
+count(max);
+
+function count(max){
+	var zahl = "";
+	for(var x = 0; x <= max; x++){
+		zahl = zahl + x + "<br>";
+	} 
+	document.getElementById('demo').innerHTML = zahl;
+}
+
+</script>
+
+</body>
+</html>

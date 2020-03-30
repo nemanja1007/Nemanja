@@ -5,10 +5,29 @@
 <title>Array Übung</title>
 </head>
 <body>
-<script type="text/javascript">
-var schueler =["Gian", "Lakisha", "Jahi"];
-</script>
-<p id="demo"> <p>
-<script>document.getElementById("demo").innerHTML = schueler;</script>
+	<script type="text/javascript">
+		var schueler = [ "Gian", "Lakisha", "Jahi" ];
+	</script>
+	<p id="demo">
+	<p>
+	<p id="demo2">
+	<p>
+	<p id="demo3">
+	<p>
+		<!-- JavaScript -->
+
+		<script>
+			//Array erstellen
+			document.getElementById("demo").innerHTML = schueler;
+			
+			//2.Wert überschreiben
+			schueler[1] ="Nemanja";
+			
+			//Ausgabe mit Nemanja
+			document.getElementById("demo2").innerHTML = schueler;
+			
+			//3. Wert ausgeben
+			document.getElementById("demo3").innerHTML = schueler[2];
+		</script>
 </body>
 </html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Formular</title>
+</head>
+<body>
+<h1>Anmeldeformular</h1>
+<h2>Ihre Daten</h2>
+<form action="auswertung.jsp" name="formular" onsubmit="return validateForm()">
+<label>Name: <input type="text" name="name"></label>
+<br>
+<label>Vorname: <input type="text" name="vorname"></label>
+<br>
+<label>Email: <input type="email" name="email"></label>
+<br>
+<label>Handynummer: <input type="number" name="handynummer"></label>
+<br>
+<input type="submit" name="submit" value="Absenden">
+</form>
+<script type="text/javascript">
+//Fehlervariablen erstellen
+var fehlerName = 0;
+var fehlerVorname = 0;
+var fehlerEmail = 0;
+var fehlerHandynummer = 0;
+//Funktion Überprüfung
+function validateForm() {
+	  var name = document.forms["formular"]["name"].value;
+	  var vorname = document.forms["formular"]["vorname"].value;
+	  var email = document.forms["formular"]["email"].value;
+	  var handynummer = document.forms["formular"]["handynummer"].value;
+	  //Überprüfung, ob Felder leer sind, wenn ja-->Fehlervariable = 1
+	  if (name == "") {
+		fehlerName = 1;
+	  }
+	  if (vorname == "") {
+			fehlerVorname = 1;
+		  }
+	  if (email == "") {
+			fehlerEmail = 1;
+		  }
+	  if (handynummer == "") {
+			fehlerHandynummer = 1;
+		  }
+	  //Überprüfung, ob eine Fehlervariable den Wert 1 hat
+	  //Wenn ja-->Meldung
+	  if(fehlerName == 1 || fehlerVorname == 1 || fehlerEmail == 1 || fehlerHandynummer == 1){
+		  alert("Bitte füllen Sie das Formular vollständig und korrekt aus");
+		  fehlerName = 0;
+		  fehlerVorname = 0;
+		  fehlerEmail = 0;
+		  fehlerHandynummer = 0;
+		  return false;
+	  }
+	  //Ansonsten return true
+	  else{
+		  return true;
+	  }
+	  
+	}
+</script>
+
+</body>
+</html>
