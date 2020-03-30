@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Hintergrundfabre ändern</title>
+</head>
+<body>
+
+	<script language="JavaScript" type="text/javascript">
+		var eingabe = prompt("Bitte gib deine Wunsch Hintergrundfarbe an.");
+	</script>
+	<p id="demo" onclick="hintergrund()">Klicke hier, um die Hintergrundfarbe zu ändern</p>
+	<script>
+		function hintergrund() {
+
+			document.getElementById("demo").innerHTML = 
+				"<style>body{ background-color:" + eingabe + ";} </style>";
+		}
+	</script>
+</body>
+</html>
