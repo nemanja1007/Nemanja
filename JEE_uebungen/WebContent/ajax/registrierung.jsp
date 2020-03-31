@@ -12,7 +12,7 @@
 </head>
 <body style="padding: 5px;">
 <h1>Registrieren</h1>
-<form action="pruefen.jsp">
+<form action="reg_pruefen.jsp">
 <label>Benutzername: <input type ="text" name="benutzer" required></label>
 <br>
 <label>Passwort: <input type ="password" name="passwort" required></label>

@@ -4,6 +4,8 @@
 
 	<%
 		String benutzer = request.getParameter("benutzer");
+		String passwort = request.getParameter("passwort");
+		String wiederholung = request.getParameter("wiederholung");
 		
 		ArrayList<String> benutzerListe = 
 		(ArrayList<String>)request.getServletContext().getAttribute("benutzerListe");
@@ -24,11 +26,14 @@
 			}
 		}
 		
-		if(vorhanden == 0){
+		if(vorhanden == 0 && passwort.equals(wiederholung)){
 			benutzerListe.add(benutzer);
 			out.print("Erfolgreich registriert!");
 			
-		}else{
+		}else if(!passwort.equals(wiederholung)){
+			out.print("Passwörter stimmen nicht überein!");
+		}
+			else{
 			out.print("Dieser Name ist schon vergeben!");
 		}
 	%>
