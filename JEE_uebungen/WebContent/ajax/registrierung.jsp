@@ -1,40 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<%@page import="java.util.ArrayList"%>
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Registrierung</title>
 </head>
-<body>
-	<%
-		String benutzer = request.getParameter("benutzername");
-		ArrayList<String> benutzerListe = new ArrayList<>();
-		benutzerListe.add("Hans");
-		benutzerListe.add("Nemanja");
-		benutzerListe.add("Peter");
-		benutzerListe.add("Jahi");
-		
-		int vorhanden = 0;
-		
-		for(int i = 0; i < benutzerListe.size(); i++){
-			if(benutzerListe.contains(benutzer)){
-				vorhanden = 1;
-			}else{
-				vorhanden = 0;
-				
-			}
-		}
-		
-		if(vorhanden == 0){
-			benutzerListe.add(benutzer);
-			out.print("Erfolgreich eingeloggt!");
-			
-		}else{
-			out.print("Dieser Name ist schon vergeben!");
-		}
-		
-	%>
+<body style="padding: 5px;">
+<h1>Registrieren</h1>
+<form action="pruefen.jsp">
+<label>Benutzername: <input type ="text" name="benutzer" required></label>
+<br>
+<label>Passwort: <input type ="password" name="passwort" required></label>
+<br>
+<label>Passwort wiederholen: <input type ="password" name="wiederholung" required></label>
+<br>
+<button class="btn btn-primary" type="submit">Registrieren</button>
+
+</form>
 </body>
 </html>
