@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>JSON Übung</title>
+<script type="text/javascript">
+	function loadEmployees() {
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4) {
+				if (this.status == 200) {
+					var antwort = this.responseText;
+					var obj = JSON.parse(antwort);
+					document.getElementById("demo".innerHTML = '<h3>'
+							+ obj.employees[0].firstname + ' '
+							+ obj.employees[0].lastname + ' ' + '</h3>');
+				} else if (this.status == 404) {
+					document.getElementById("demo").innerHTML = "Leider nicht gefunden";
+				} else {
+					document.getElementById("demo").innerHTML = "unbekannter Fehler";
+				}
+			}
+		};
+		xhttp.open("POST", "JSONDemo", true);
+		xhttp.setRequestHeader('Content-type', 'application/json');
+		xhttp.send('{"vorname" : "hans"}');
+	}
+</script>
+</head>
+<body>
+	<button onclick="loadEmployees();">Mitarbeiter laden</button>
+	<p id="demo"></p>
+</body>
+</html>
