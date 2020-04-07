@@ -12,8 +12,10 @@ public class TestPersonen {
 	public static void main(String[] args) {
 		TestPersonen tp = new TestPersonen();
 		tp.open();
-		//tp.test();
+		//tp.testInsert();
 		tp.testSelectById();
+		tp.testDelete();
+		tp.testUpdate();
 		tp.selectAll();
 		tp.close();
 
@@ -24,7 +26,7 @@ public class TestPersonen {
 
 	}
 
-	public void test() {
+	public void testInsert() {
 		EntityManager entityManager = entityManagerFactory.createEntityManager();
 		entityManager.getTransaction().begin();
 		Person p = new Person();
@@ -43,6 +45,27 @@ public class TestPersonen {
 		if(p != null) {
 			System.out.println(p.getName() + ", " + p.getVorname());
 		}
+		entityManager.getTransaction().commit();
+		entityManager.close();
+	}
+	
+	public void testDelete() {
+		Person p = new Person();
+		p.setId(1);
+		EntityManager entityManager = entityManagerFactory.createEntityManager();
+		entityManager.getTransaction().begin();
+		p = entityManager.merge(p);
+		entityManager.getTransaction().commit();
+		entityManager.close();
+	}
+	
+	public void testUpdate() {
+		Person p = new Person();
+		p.setId(2);
+		p.setName("Jahi");
+		EntityManager entityManager = entityManagerFactory.createEntityManager();
+		entityManager.getTransaction().begin();
+		entityManager.merge(p);
 		entityManager.getTransaction().commit();
 		entityManager.close();
 	}
